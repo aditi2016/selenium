@@ -1,24 +1,70 @@
-import unittest
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+package com.example.tests;
 
-class PythonOrgSearch(unittest.TestCase):
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import org.junit.*;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
-    def setUp(self):
-        self.driver = webdriver.Firefox()
+public class Unittest {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
 
-    def test_search_in_python_org(self):
-        driver = self.driver
-        driver.get("http://www.python.org")
-        self.assertIn("Python", driver.title)
-        elem = driver.find_element_by_name("q")
-        elem.send_keys("pycon")
-        elem.send_keys(Keys.RETURN)
-        assert "No results found." not in driver.page_source
+  @Before
+  public void setUp() throws Exception {
+    driver = new FirefoxDriver();
+    baseUrl = "http://change-this-to-the-site-you-are-testing/";
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
 
+  @Test
+  public void testUnit() throws Exception {
+  }
 
-    def tearDown(self):
-        self.driver.close()
+  @After
+  public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
 
-if __name__ == "__main__":
-    unittest.main()
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}
