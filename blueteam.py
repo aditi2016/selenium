@@ -64,12 +64,10 @@ time.sleep(10)
 driver.find_element_by_xpath("//img[contains(@src,'maid.jpeg')]").click()
 time.sleep(10)
 driver.find_element_by_css_selector("body > ion-nav-view > ion-side-menus > ion-side-menu-content > ion-tabs > ion-nav-view:nth-child(4) > ion-view > ion-content > div.scroll > ion-list > div > ion-item:nth-child(1) > a").click()
+
 time.sleep(10)
-driver.back()
-driver.back()
-time.sleep(20)
 #to logout
-driver.find_element_by_css_selector("body > ion-nav-view > ion-side-menus > ion-side-menu-content > ion-nav-bar > div:nth-child(3) > ion-header-bar > div.buttons.buttons-left.header-item > span > button").click()
+driver.find_element_by_css_selector("body > ion-nav-view > ion-side-menus > ion-side-menu-content > ion-nav-bar > div:nth-child(4) > ion-header-bar > div.buttons.buttons-left.header-item > span > button").click()
 time.sleep(5)
 driver.find_element_by_css_selector("body > ion-nav-view > ion-side-menus > ion-side-menu > ion-content > div.scroll > ion-list > div > ion-item:nth-child(14)").click()
 
