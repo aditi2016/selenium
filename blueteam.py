@@ -8,7 +8,7 @@ from smtplib import SMTPException
 #path of chrome driver
 driver = webdriver.Chrome(executable_path="/home/collap/Downloads/chromedriver.exe")
 # go to that url
-if true {
+
 driver.get("http://goo.gl/545wov")
 #wait for 30second while page loading
 time.sleep(30)
@@ -81,28 +81,7 @@ time.sleep(5)
 driver.find_element_by_css_selector("body > ion-nav-view > ion-side-menus > ion-side-menu > ion-content > div.scroll > ion-list > div > ion-item:nth-child(14)").click()
 
 driver.close()
-}
-else { 
 
-
-sender = 'aditilahoria@gmail.com'
-receivers = ['aditi@blueteam.in']
-
-message = """From: From Person <aditi@blueteam.in>
-To: To Person <aditilahoria@gmail.com>
-Subject: SMTP e-mail test
-
-Error in openning.
-"""
-
-try:
-   smtpObj = smtplib.SMTP('aditilahoria@gmail.com,465')
-   smtpObj.sendmail(sender, receivers, message)         
-   print "Successfully sent email"
-except SMTPException:
-   print "Error: unable to send email"
-}
-    
 
 
 
