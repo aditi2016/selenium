@@ -5,7 +5,7 @@ import smtplib
 from smtplib import SMTPException
 usageInMin = {'startAt':int(time.time())}
 #path of chrome driver
-driver = webdriver.Chrome(executable_path="/home/ishu/Downloads/chromedriver")
+driver = webdriver.Chrome(executable_path="/home/collap/Downloads/chromedriver.exe")
 # go to that url
 try:
 	driver.get("http://goo.gl/545wov")
@@ -29,22 +29,29 @@ try:
 	driver.close()
 
 
-except: 
-	sender = 'aditilahoria@gmail.com'
-	receivers = ['aditi@blueteam.in']
+except:sender = 'aditilahoria@gmail.com'
+receivers = ['aditilahoria@gmail.com']
 
-	message = """From: From Person <from@fromdomain.com>
-	To: To Person <to@todomain.com>
-	Subject: SMTP e-mail test
+message = """From: From Person <den.callanan@gmail.com>
+To: To Person <callanden@gmail.com>
+Subject: SMTP e-mail test
 
-	This is a test e-mail message..ok.
-	"""
+code error code error.
+"""
 
-	try:
-	   smtpObj = smtplib.SMTP('smtp.gmail.com,465')
-	   smtpObj.sendmail(sender, receivers, message)         
-	   print "Successfully sent email"
-	except SMTPException:
-	   print "Error: unable to send email"
+try:
+    print("trying host and port...")
 
+    smtpObj = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+    smtpObj.login("aditilahoria@gmail.com", "killbill12345")
 
+    print("sending mail...")
+
+    smtpObj.sendmail(sender, receivers, message)
+
+    print("Succesfully sent email")
+
+except smtplib.SMTPException:
+    print("Error: unable to send email")
+    import traceback
+    traceback.print_exc()

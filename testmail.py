@@ -2,13 +2,13 @@ import smtplib
 from smtplib import SMTPException
 
 sender = 'aditilahoria@gmail.com'
-receivers = ['aditi@blueteam.in']
+receivers = ['aditilahoria@gmail.com']
 
 message = """From: From Person <den.callanan@gmail.com>
 To: To Person <callanden@gmail.com>
 Subject: SMTP e-mail test
 
-This is a test e-mail message.
+code error code error.
 """
 
 try:
