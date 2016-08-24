@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
@@ -5,7 +6,7 @@ import smtplib
 from smtplib import SMTPException
 usageInMin = {'startAt':int(time.time())}
 #path of chrome driver
-driver = webdriver.Chrome(executable_path="/home/ishu/Downloads/chromedriver")
+driver = webdriver.Chrome(executable_path="/home/collap/Downloads/chromedriver.exe")
 # go to that url
 try:
 	driver.get("http://goo.gl/545wov")
@@ -14,7 +15,7 @@ try:
 	#find element by name
 	mobile = driver.find_element_by_name("mobile")
 	#then send key or can say password where moblile in css
-	mobile.send_keys(9911033477)
+	mobile.send_keys(9911033479)
 	#send password at place of password
 	password = driver.find_element_by_name("password")
 	password.send_keys("redhat@11111p")
