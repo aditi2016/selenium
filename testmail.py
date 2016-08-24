@@ -1,20 +1,29 @@
-#!/usr/bin/python
-
 import smtplib
+from smtplib import SMTPException
 
 sender = 'aditilahoria@gmail.com'
 receivers = ['aditi@blueteam.in']
 
-message = """From: From Person <from@fromdomain.com>
-To: To Person <to@todomain.com>
+message = """From: From Person <den.callanan@gmail.com>
+To: To Person <callanden@gmail.com>
 Subject: SMTP e-mail test
 
-This is a test e-mail message..ok.
+This is a test e-mail message.
 """
 
 try:
-   smtpObj = smtplib.SMTP('localhost')
-   smtpObj.sendmail(sender, receivers, message)         
-   print "Successfully sent email"
-except SMTPException:
-   print "Error: unable to send email"
+    print("trying host and port...")
+
+    smtpObj = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+    smtpObj.login("aditilahoria@gmail.com", "killbill12345")
+
+    print("sending mail...")
+
+    smtpObj.sendmail(sender, receivers, message)
+
+    print("Succesfully sent email")
+
+except smtplib.SMTPException:
+    print("Error: unable to send email")
+    import traceback
+    traceback.print_exc()
